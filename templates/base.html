@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Portofolio | Ahmad Amirul Wicaksono{% endblock %}</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    @keyframes fade-in {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade { animation: fade-in 0.6s ease-out both; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, .font-serif-heading { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="py-4 sticky top-0 z-50 bg-white shadow-sm transition-all">
+    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between animate-fade">
+
+        <!-- Brand -->
+        <div>
+        <a href="/" class="text-2xl font-extrabold text-gray-900 hover:text-blue-600 transition duration-300 tracking-tight font-serif-heading">
+            Portofolio
+        </a>
+        <p class="text-xs text-gray-500">Crafting digital experience</p>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="relative">
+        <button id="menu-toggle" class="text-gray-600 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 p-2">
+            <!-- Icon Hamburger -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div id="menu-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg p-4 space-y-3 z-50">
+            <a href="https://instagram.com/amirulwicaksono_" target="_blank" class="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5A4.25 4.25 0 0020.5 16.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zM17.5 6.25a1 1 0 110 2 1 1 0 010-2z"/>
+            </svg>
+            Instagram
+            </a>
+            <a href="https://github.com/Amrlwcksn" target="_blank" class="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .5C5.373.5 0 5.873 0 12.5c0 5.281 3.438 9.747 8.205 11.324.6.111.82-.261.82-.579 0-.285-.01-1.04-.016-2.042-3.338.727-4.042-1.608-4.042-1.608-.546-1.386-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.204.085 1.837 1.237 1.837 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.761-1.605-2.665-.304-5.467-1.332-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.006-.404c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.654 1.653.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.625-5.479 5.921.43.372.815 1.103.815 2.222 0 1.604-.015 2.896-.015 3.289 0 .321.218.694.825.576C20.565 22.244 24 17.78 24 12.5 24 5.873 18.627.5 12 .5z"/>
+            </svg>
+            GitHub
+            </a>
+        </div>
+        </div>
+    </div>
+    </nav>
+
+    <script>
+    const toggle = document.getElementById('menu-toggle');
+    const dropdown = document.getElementById('menu-dropdown');
+
+    toggle.addEventListener('click', () => {
+        dropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+        }
+    });
+    </script>
+
+
+  <!-- Main content -->
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer class="text-center text-xs text-gray-600 py-6 animate-fade border-t">
+    © 2025 Ahmad Amirul Wicaksono. All rights reserved.
+  </footer>
+
+</body>
+</html>

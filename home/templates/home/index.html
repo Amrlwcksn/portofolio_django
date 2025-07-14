@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Beranda - Wicak{% endblock %}
+
+{% block content %}
+<section class="max-w-5xl mx-auto px-6 py-16 animate-fade">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+    <!-- Profil -->
+    <div class="lg:col-span-8 space-y-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <!-- <img src="{% static 'images/wicaksono.png' %}" alt="Ahmad Amirul Wicaksono"
+             class="w-24 h-auto rounded-xl shadow-md transition-transform hover:scale-105 duration-300" /> -->
+        <div>
+          <h1 class="text-3xl md:text-4xl font-semibold mb-1 font-serif-heading">Digital Product Wiz</h1>
+          <h2 class="text-3xl md:text-4xl font-light leading-snug -mt-1 font-serif-heading">
+            Making cool photos,<br />
+            vids & websites happen.
+          </h2>
+        </div>
+      </div>
+      <div class="space-y-2">
+        <p class="text-neutral-600 leading-relaxed">
+          I'm Ahmad Amirul Wicaksono.<br />
+          From code to camera — Blending tech & creativity for impact.
+        </p>
+        <p class="text-neutral-500 text-xs">
+          Mahasiswa di Universitas PGRI Semarang — Program Studi Pendidikan Teknologi Informasi.
+        </p>
+      </div>
+    </div>
+
+    <!-- Galeri Highlight -->
+    <div class="lg:col-span-4 space-y-3">
+      <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wide">photos</h3>
+      <div class="space-y-2">
+        {% for img in featured_images %}
+          <div class="overflow-hidden rounded-lg shadow hover:shadow-md transition duration-300">
+            <img src="{{ img.image.url }}"
+                 alt="Featured gallery image"
+                 class="w-full h-auto rounded-md object-cover max-h-40 hover:scale-105 transition-transform duration-300 ease-in-out"
+                 loading="lazy">
+          </div>
+        {% endfor %}
+          <div>
+            <a href="{% url 'gallery_index' %}" class="text-sm text-blue-600 hover:underline">Lihat lainnya →</a>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
