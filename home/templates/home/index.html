@@ -49,5 +49,25 @@
     </div>
 
   </div>
+
+  <!-- Blog Highlight -->
+<div class="col-span-12 mt-10 space-y-3">
+  <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wide">Latest Blogs</h3>
+  <div class="grid sm:grid-cols-2 gap-6">
+    {% for post in highlight_posts %}
+      <div class="p-4 bg-white border rounded-xl shadow hover:shadow-md transition duration-300">
+        <h4 class="text-lg font-semibold font-serif-heading mb-1">
+          <a href="{% url 'blog_detail' slug=post.slug %}" class="hover:underline">
+            {{ post.title }}
+          </a>
+        </h4>
+        <p class="text-sm text-neutral-500">{{ post.created_at|date:"d M Y" }}</p>
+        <p class="mt-2 text-sm text-neutral-600 line-clamp-3">{{ post.content|striptags|truncatechars:200 }}
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="{% url 'blog_index' %}" class="text-sm text-blue-600 hover:underline block mt-2">Lihat semua artikel →</a>
+</div>
 </section>
 {% endblock %}
