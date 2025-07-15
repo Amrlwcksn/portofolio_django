@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyd
+.Python
+*.log
+*.pot
+
+# Virtual Environments
+env/
+venv/
+ENV/
+VENV/
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+staticfiles.json
+
+# Node (kalau pakai npm untuk styling/JS)
+node_modules/
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# Git merge/conflict
+*.orig
+*.swp
+*.swo
