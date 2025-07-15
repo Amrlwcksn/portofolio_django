@@ -31,7 +31,10 @@
               {{ post.title }}
             </a>
           </h2>
-          <p class="text-sm text-neutral-500 mb-2">{{ post.created_at|date:"d M Y" }}</p>
+          <p class="text-sm text-neutral-500 mb-2">
+            {{ post.created_at|date:"d M Y" }} oleh {{ post.author.get_full_name|default:post.author.username }}
+          </p>
+
           <p class="text-neutral-700 text-sm leading-relaxed mb-3">
             {{ post.excerpt }}
           </p>
